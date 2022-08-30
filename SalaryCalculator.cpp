@@ -1,4 +1,4 @@
-﻿#include <string>
+#include <string>
 using namespace std;
 
 #include "Employee.h"
@@ -6,17 +6,19 @@ using namespace std;
 
 namespace Lab9
 {
-	double SalaryCalculator::GetSalary(Employee& emp)
-	{
-		double salary = 0.0;
+    double SalaryCalculator::GetSalary(Employee& emp)
+    {
 
-		return salary;
-	}
+        double salary = emp._basic+emp._hra+SalaryCalculator::GetAllowance(Employee& emp);
 
-	double SalaryCalculator::GetAllowance(Employee& emp)
-	{
-		double allowance = 0.0;
+        return salary;
+    }
 
-		return allowance;
-	}
+    double SalaryCalculator::GetAllowance(Employee& emp)
+    {
+        double allowance = emp._basic*emp._allowancePercentage/100;
+
+        return allowance;
+    }
 }
+
